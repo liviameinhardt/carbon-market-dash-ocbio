@@ -17,8 +17,8 @@ st.markdown("##")
 
 st.header("Mercado de Créditos de Carbono")
 
-mvc_credits = pd.read_csv("../data/processed/mvc_credits.csv", sep=";", decimal=",",index_col=0)
-mvc_credits_info = pd.read_csv("../data/processed/mvc_credits_info.csv", sep=";", decimal=",",index_col=0)
+mvc_credits = pd.read_csv("data/processed/mvc_credits.csv", sep=";", decimal=",",index_col=0)
+mvc_credits_info = pd.read_csv("data/processed/mvc_credits_info.csv", sep=";", decimal=",",index_col=0)
 
 mvc_credits_info.rename(columns={"First Year of Project (Vintage)":"Start Year"},inplace=True)
 
@@ -27,7 +27,7 @@ mvc_credits_info.rename(columns={"First Year of Project (Vintage)":"Start Year"}
 credits_pais = mvc_credits.copy()
 pais_info = mvc_credits_info.copy()
 
-iso_countries = pd.read_csv("../data/processed/iso_countries.csv", sep=";", decimal=",",index_col=1)
+iso_countries = pd.read_csv("data/processed/iso_countries.csv", sep=";", decimal=",",index_col=1)
 
 
 

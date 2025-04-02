@@ -11,8 +11,8 @@ st.set_page_config (
 )
 
 # Carregar os dados
-data_wb = pd.read_csv("../data/processed/wb_info.csv",sep=";",decimal=",")
-series_wb = pd.read_csv("../data/processed/wb_time_series.csv",sep=";",decimal=",")
+data_wb = pd.read_csv("data/processed/wb_info.csv",sep=";",decimal=",")
+series_wb = pd.read_csv("data/processed/wb_time_series.csv",sep=";",decimal=",")
 
 
 # Informações gerais
