@@ -20,9 +20,9 @@ st.text("Fonte: Banco Mundial (Abril, 2024)")  #automatico (criar um info.txt)
 st.markdown("##")
 
 # Carregar os dados
-data_wb = pd.read_csv("..\data\processed\wb_info.csv",sep=";",decimal=",")
-series_wb = pd.read_csv("..\data\processed\wb_time_series.csv",sep=";",decimal=",")
-iso = pd.read_csv("..\data\processed\iso_countries.csv", on_bad_lines='skip',delimiter=';',index_col=1)
+data_wb = pd.read_csv("../data/processed/wb_info.csv",sep=";",decimal=",")
+series_wb = pd.read_csv("../data/processed/wb_time_series.csv",sep=";",decimal=",")
+iso = pd.read_csv("../data/processed/iso_countries.csv", on_bad_lines='skip',delimiter=';',index_col=1)
 
 data_wb = data_wb[data_wb["Type"]=="Carbon tax"]
 series_wb =series_wb[series_wb["Instrument Type"]=="Carbon tax"]

@@ -14,10 +14,10 @@ st.set_page_config (
 st.title("CBIO Renovado")
 st.write("Fonte: B3 (Março, 2025)")
 
-cbio_data = pd.read_csv("..\data\processed\cbio_data.csv",sep=";",decimal=",",index_col=0)
+cbio_data = pd.read_csv("../data/processed/cbio_data.csv",sep=";",decimal=",",index_col=0)
 cbio_data.index = pd.to_datetime(cbio_data.index)
 
-cbio_negociacoes = pd.read_csv("..\data\processed\cbio_negociacoes.csv",sep=";",decimal=",",index_col=0)
+cbio_negociacoes = pd.read_csv("../data/processed/cbio_negociacoes.csv",sep=";",decimal=",",index_col=0)
 cbio_negociacoes.index = pd.to_datetime(cbio_negociacoes.index)
 cbio_negociacoes.rename(columns={"Valor Financeiro":"Receita"}, inplace=True)
 
