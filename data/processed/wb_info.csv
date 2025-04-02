@@ -1,0 +1,126 @@
+Instrument name;Type;Status;Jurisdiction covered;Share of jurisdiction emissions covered;Share of global emissions covered;Sectors Covered;Start Year;End Year;Region;Income group;Subtype;lat;lon
+Finland carbon tax;Carbon tax;Implemented;Finland;0,45;0,0004585255243947;Industry, Mining and extractives, Transport, Buildings, Agriculture, forestry and fishing fuel use;1990;;Europe & Central Asia;High income;National;63,2467777;25,9209164
+Poland carbon tax;Carbon tax;Implemented;Poland;0,24;0,0017885257011279;Transport, Buildings, Agriculture, forestry and fishing fuel use;1990;;Europe & Central Asia;High income;National;52,215933;19,134422
+Norway carbon tax;Carbon tax;Implemented;Norway;0,65;0,0008455273065083;Mining and extractives, Transport, Aviation, Buildings, Agriculture, forestry and fishing fuel use, Waste;1991;;Europe & Central Asia;High income;National;64,5731537;11,52803643954819
+Sweden carbon tax;Carbon tax;Implemented;Sweden;0,4;0,0004509483474512;Electricity and heat, Industry, Mining and extractives, Transport, Buildings, Agriculture, forestry and fishing fuel use;1991;;Europe & Central Asia;High income;National;59,6749712;14,5208584
+Denmark carbon tax;Carbon tax;Implemented;Denmark;0,48;0,0004086875570634;Electricity and heat, Industry, Mining and extractives, Transport, Buildings, Agriculture, forestry and fishing fuel use;1992;;Europe & Central Asia;High income;National;55,670249;10,3333283
+Latvia carbon tax;Carbon tax;Implemented;Latvia;0,02;4,130350761282063e-06;Industry, Mining and extractives;2004;;Europe & Central Asia;High income;National;56,8406494;24,7537645
+Slovenia Carbon tax;Carbon tax;Implemented;Slovenia;0,457;0,0001552827841979;Transport, Buildings;1996;;Europe & Central Asia;High income;National;46,1199444;14,8153333
+Estonia carbon tax;Carbon tax;Implemented;Estonia;0,1;2,567455786998361e-05;Electricity and heat, Industry;2000;;Europe & Central Asia;High income;National;58,7523778;25,3319078
+EU ETS;ETS;Implemented;EU;0,38;0,0258771841955652;Electricity and heat, Industry, Mining and extractives, Aviation;2005;;Europe & Central Asia;High income;Regional;50,0491699;1,4175744
+Alberta TIER;ETS;Implemented;Alberta;0,62;0,0029509516450569;Electricity and heat, Industry, Mining and extractives;2007;;North America;High income;Subnational - State/Province;55,001251;-115,002136
+Switzerland ETS;ETS;Implemented;Switzerland;0,12;0,0001012454151771;Electricity and heat, Industry, Mining and extractives, Aviation;2008;;Europe & Central Asia;High income;National;46,7985624;8,2319736
+New Zealand ETS;ETS;Implemented;New Zealand;0,48;0,0007382174478135;Electricity and heat, Industry, Mining and extractives, Transport, Aviation, Buildings, Agriculture, forestry and fishing fuel use, Waste, LULUCF;2008;;East Asia & Pacific;High income;National;-41,5000831;172,8344077
+Switzerland carbon tax;Carbon tax;Implemented;Switzerland;0,35;0,0002952991275998;Buildings;2008;;Europe & Central Asia;High income;National;46,7985624;8,2319736
+BC carbon tax;Carbon tax;Implemented;British Columbia;0,8;0,0008775511444473;Electricity and heat, Industry, Mining and extractives, Transport, Aviation, Buildings, Agriculture, forestry and fishing fuel use;2008;;North America;High income;Subnational - State/Province;55,001251;-125,002441
+RGGI;ETS;Implemented;RGGI;0,14;0,0016443806198374;Electricity and heat;2009;;North America;High income;Subnational - State/Province;;
+Iceland carbon tax;Carbon tax;Implemented;Iceland;0,36;3,1028207156692016e-05;Electricity and heat, Industry, Mining and extractives, Transport, Buildings, Agriculture, forestry and fishing fuel use;2010;;Europe & Central Asia;High income;National;64,9841821;-18,1059013
+Tokyo CaT;ETS;Implemented;Tokyo;0,18;0,0002034728755261;Industry, Mining and extractives, Buildings;2010;;East Asia & Pacific;High income;Subnational - City;35,6768601;139,7638947
+Ireland carbon tax;Carbon tax;Implemented;Ireland;0,34;0,0003481524708829;Electricity and heat, Industry, Mining and extractives, Transport, Buildings, Agriculture, forestry and fishing fuel use;2010;;Europe & Central Asia;High income;National;52,865196;-7,9794599
+Saitama ETS;ETS;Implemented;Saitama;0,18;0,0001306510042851;Industry, Mining and extractives, Buildings;2011;;East Asia & Pacific;High income;Subnational - City;35,9754168;139,4160114
+California CaT;ETS;Implemented;California;0,76;0,0055581159360899;Electricity and heat, Industry, Mining and extractives, Transport, Buildings, Agriculture, forestry and fishing fuel use;2012;;North America;High income;Subnational - State/Province;36,7014631;-118,755997
+Japan carbon tax;Carbon tax;Implemented;Japan;0,8;0,0151293105664065;Electricity and heat, Industry, Mining and extractives, Transport, Buildings;2012;;East Asia & Pacific;High income;National;36,5748441;139,2394179
+Quebec CaT;ETS;Implemented;Quebec;0,785;0,0011238046382652;Electricity and heat, Industry, Mining and extractives, Transport, Buildings, Agriculture, forestry and fishing fuel use;2013;;North America;High income;Subnational - State/Province;52,4760892;-71,8258668
+Kazakhstan ETS;ETS;Implemented;Kazakhstan;0,47;0,0028970189048756;Electricity and heat, Industry, Mining and extractives;2013;;Europe & Central Asia;Upper middle income;National;48,1012954;66,7780818
+UK Carbon Price Support;Carbon tax;Implemented;United Kingdom;0,13;0,0010309938046081;Electricity and heat;2013;;Europe & Central Asia;High income;National;54,7023545;-3,2765753
+Shenzhen pilot ETS;ETS;Implemented;Shenzhen;0,3;0,0002533371164033;Industry, Mining and extractives, Transport, Buildings;2013;;East Asia & Pacific;Upper middle income;Subnational - City;22,5445741;114,0545429
+Shanghai pilot ETS;ETS;Implemented;Shanghai;0,36;0,0016330706216978;Industry, Mining and extractives, Aviation, Buildings, Agriculture, forestry and fishing fuel use;2013;;East Asia & Pacific;Upper middle income;Subnational - City;31,2312707;121,4700152
+Beijing pilot ETS;ETS;Implemented;Beijing;0,24;0,0005894466416008;Industry, Transport, Buildings;2013;;East Asia & Pacific;Upper middle income;Subnational - City;40,190632;116,412144
+Guangdong pilot ETS;ETS;Implemented;Guangdong (except Shenzhen);0,4;0,0051574721921547;Industry, Mining and extractives, Aviation;2013;;East Asia & Pacific;Upper middle income;Subnational - State/Province;23,1357694;113,1982688
+Tianjin pilot ETS;ETS;Implemented;Tianjin;0,35;0,0011917404832189;Industry, Mining and extractives;2013;;East Asia & Pacific;Upper middle income;Subnational - City;39,3032619;117,4163641
+France carbon tax;Carbon tax;Implemented;France;0,4;0,0032005579608402;Industry, Transport, Buildings;2014;;Europe & Central Asia;High income;National;46,603354;1,8883335
+Mexico carbon tax;Carbon tax;Implemented;Mexico;0,29;0,0044205362742389;Electricity and heat, Industry, Mining and extractives, Transport, Aviation, Buildings, Agriculture, forestry and fishing fuel use;2014;;Latin America & Caribbean;Upper middle income;National;23,6585116;-102,0077097
+Hubei pilot ETS;ETS;Implemented;Hubei;0,27;0,0017594714524317;Industry, Mining and extractives;2014;;East Asia & Pacific;Upper middle income;Subnational - State/Province;39,0000001;116,0
+Chongqing pilot ETS;ETS;Implemented;Chongqing;0,51;0,0017835669245335;Industry;2014;;East Asia & Pacific;Upper middle income;Subnational - City;30,05518;107,8748712
+Korea ETS;ETS;Implemented;Korea, Rep.;0,89;0,0120089125055336;Electricity and heat, Industry, Mining and extractives, Transport, Aviation, Buildings, Waste;2015;;East Asia & Pacific;High income;National;36,638392;127,6961188
+Portugal carbon tax;Carbon tax;Implemented;Portugal;0,4;0,0004440746043517;Electricity and heat, Industry, Mining and extractives, Transport, Buildings, Agriculture, forestry and fishing fuel use;2015;;Europe & Central Asia;High income;National;39,6621648;-8,1353519
+BC OBPS;ETS;Implemented;British Columbia;0,0;0,0;;2016;;North America;High income;Subnational - State/Province;55,001251;-125,002441
+Australia Safeguard Mechanism;ETS;Implemented;Australia;0,26;0,0027620429445695;Industry, Mining and extractives, Transport, Aviation;2023;;East Asia & Pacific;High income;National;-24,7761086;134,755
+South Africa carbon tax;Carbon tax;Implemented;South Africa;0,82;0,0081492514257651;Electricity and heat, Industry, Mining and extractives, Aviation, Buildings, Agriculture, forestry and fishing fuel use, Waste;2019;;Sub-Saharan Africa;Upper middle income;National;-28,8166236;24,991639
+Chile carbon tax;Carbon tax;Implemented;Chile;0,55;0,0014010361798857;Electricity and heat, Industry, Mining and extractives;2017;;Latin America & Caribbean;High income;National;-31,7613365;-71,3187697
+Colombia carbon tax;Carbon tax;Implemented;Colombia;0,2;0,000801462179575;Electricity and heat, Industry, Mining and extractives, Transport, Aviation, Buildings, Agriculture, forestry and fishing fuel use;2017;;Latin America & Caribbean;Upper middle income;National;4,099917;-72,9088133
+Ukraine carbon tax;Carbon tax;Implemented;Ukraine;0,32;0,0012411068571232;Electricity and heat, Industry, Mining and extractives, Buildings;2011;;Europe & Central Asia;Lower middle income;National;49,4871968;31,2718321
+Liechtenstein carbon tax;Carbon tax;Implemented;Liechtenstein;0,72;2,4618105685453004e-06;Industry, Mining and extractives, Transport, Buildings;2008;;Europe & Central Asia;High income;National;47,1416307;9,5531527
+Washington CCA;ETS;Implemented;Washington;0,7;0,0011209934998534;Electricity and heat, Industry, Mining and extractives, Transport, Buildings, Agriculture, forestry and fishing fuel use;2023;;North America;High income;Subnational - State/Province;38,8950368;-77,0365427
+Fujian pilot ETS;ETS;Implemented;Fujian;0,51;0,0028428027625964;Industry;2016;;East Asia & Pacific;Upper middle income;Subnational - State/Province;26,193218;118,2208721
+Canada federal OBPS;ETS;Implemented;Canada;0,01;0,0001407075379573;;2019;;North America;High income;National;61,0666922;-107,991707
+Singapore carbon tax;Carbon tax;Implemented;Singapore;0,79;0,0010350443182219;Electricity and heat, Industry, Waste;2019;;East Asia & Pacific;High income;National;1,357107;103,8194992
+China national ETS;ETS;Implemented;China;0,3187834862113031;0,0929609263185781;Electricity and heat;2021;;East Asia & Pacific;Upper middle income;National;35,0000663;104,999955
+Mexico pilot ETS;ETS;Implemented;Mexico;0,4;0,0029266998781168;Electricity and heat, Industry, Mining and extractives;2020;;Latin America & Caribbean;Upper middle income;National;23,6585116;-102,0077097
+Newfoundland and Labrador PSS;ETS;Implemented;Newfoundland and Labrador;0,38;5,863975232175913e-05;Electricity and heat, Industry, Mining and extractives;2019;;North America;High income;Subnational - State/Province;53,8217327;-61,2295532
+Massachusetts ETS;ETS;Implemented;Massachusetts;0,09;0,0;Electricity and heat;2018;;North America;High income;Subnational - State/Province;42,3788774;-72,032366
+Northwest Territories carbon tax;Carbon tax;Implemented;Northwest Territories;0,76;1,836907904055105e-05;Electricity and heat, Industry, Mining and extractives, Transport, Aviation, Buildings, Agriculture, forestry and fishing fuel use;2019;;North America;High income;Subnational - State/Province;65,0000004;-118,0
+Nova Scotia OBPS;ETS;Implemented;Nova Scotia;0,87;0,0002426280176914;;2019;;North America;High income;Subnational - State/Province;45,1960403;-63,1653789
+Canada federal fuel charge;Carbon tax;Implemented;Canada;0,31;0,0043619336766773;Industry, Mining and extractives, Transport, Aviation, Buildings, Agriculture, forestry and fishing fuel use;2019;;North America;High income;National;61,0666922;-107,991707
+Netherlands carbon tax;Carbon tax;Implemented;Netherlands;0,45;3,120650017103853e-05;Electricity and heat, Industry, Mining and extractives, Waste;2021;;Europe & Central Asia;High income;National;52,2434979;5,6343227
+Argentina carbon tax;Carbon tax;Implemented;Argentina;0,38;0,0027058535010421;Industry, Mining and extractives, Transport, Aviation, Agriculture, forestry and fishing fuel use;2018;;Latin America & Caribbean;Upper middle income;National;-34,9964963;-64,9672817
+Saskatchewan OBPS;ETS;Implemented;Saskatchewan;0,43;0,0005356408574476;Electricity and heat, Industry, Mining and extractives;2019;;North America;High income;Subnational - State/Province;55,5321257;-106,141224
+Spain carbon tax;Carbon tax;Implemented;Spain;0,019;0,0001160752604713;;2014;;Europe & Central Asia;High income;National;39,3260685;-4,8379791
+New Brunswick OBPS;ETS;Implemented;New Brunswick;0,52;0,0001160152360455;;2021;;North America;High income;Subnational - State/Province;46,500283;-66,750183
+Ontario EPS;ETS;Implemented;Ontario;0,26;0,0007299291934534;Electricity and heat, Industry, Mining and extractives;2022;;North America;High income;Subnational - State/Province;50,000678;-86,000977
+Indonesia ETS;ETS;Implemented;Indonesia;0,26;0,0059981453419029;Electricity and heat;2023;;East Asia & Pacific;Upper middle income;National;-2,4833826;117,8902853
+Germany ETS;ETS;Implemented;Germany;0,39;0,0056847802575228;Industry, Mining and extractives, Transport, Buildings, Agriculture, forestry and fishing fuel use, Waste;2021;;Europe & Central Asia;High income;National;51,1638175;10,4478313
+Luxembourg carbon tax;Carbon tax;Implemented;Luxembourg;0,72;0,0001134580905294;Industry, Mining and extractives, Transport, Buildings;2021;;Europe & Central Asia;High income;National;49,6112768;6,129799
+Montenegro ETS;ETS;Implemented;Montenegro;0,4294117647058823;2,8937116250886085e-05;;2022;;Europe & Central Asia;Upper middle income;National;-29,6826112;-51,4687455
+UK ETS;ETS;Implemented;United Kingdom;0,28;0,0003172288629563;Electricity and heat, Industry, Mining and extractives, Aviation;2021;;Europe & Central Asia;High income;National;54,7023545;-3,2765753
+Zacatecas carbon tax;Carbon tax;Implemented;Zacatecas;0,5;9,757828819866004e-05;;2017;;Latin America & Caribbean;Upper middle income;Subnational - State/Province;23,0916177;-102,9333954
+Austria ETS;ETS;Implemented;Austria;0,403;0,0005750107709729;Industry, Mining and extractives, Transport, Buildings, Agriculture, forestry and fishing fuel use;2022;;Europe & Central Asia;High income;National;47,59397;14,12456
+Uruguay CO2 tax;Carbon tax;Implemented;Uruguay;0,045;3,5062053069122336e-05;Industry, Mining and extractives, Transport;2022;;Latin America & Caribbean;High income;National;-32,8755548;-56,0201525
+Taiwan carbon fee;Carbon tax;Implemented;Taiwan, China;0,8;0,0045763897182286;Industry, Mining and extractives, Transport, Aviation, Buildings, Agriculture, forestry and fishing fuel use, Agricultural emissions, Waste, LULUCF;2024;;East Asia & Pacific;Upper middle income;Subnational - State/Province;24,93836745;118,58541419241348
+Queretaro carbon tax;Carbon tax;Implemented;Queretaro;0,18;5,27759176102182e-05;Electricity and heat, Industry, Mining and extractives, Buildings, Agriculture, forestry and fishing fuel use;2022;;Latin America & Caribbean;Upper middle income;Subnational - State/Province;20,8052225;-99,8837376
+State of Mexico carbon tax;Carbon tax;Implemented;State of Mexico;0,47;0,0009657236725742;Electricity and heat, Industry, Mining and extractives, Buildings, Agriculture, forestry and fishing fuel use;2022;;Latin America & Caribbean;Upper middle income;Subnational - State/Province;19,4839446;-99,6899716
+Yucatan carbon tax;Carbon tax;Implemented;Yucatan;0,322;9,12610191785066e-05;Electricity and heat, Industry, Mining and extractives, Buildings, Agriculture, forestry and fishing fuel use;2022;;Latin America & Caribbean;Upper middle income;Subnational - State/Province;20,6845957;-88,8755669
+Guanajuato carbon tax;Carbon tax;Implemented;Guanajuato;0,427;0,0003186328600801;Electricity and heat, Industry, Mining and extractives, Buildings, Agriculture, forestry and fishing fuel use;2023;;Latin America & Caribbean;Upper middle income;Subnational - State/Province;20,9876996;-101,0
+Durango carbon tax;Carbon tax;Implemented;Durango;;;Electricity and heat, Industry, Mining and extractives, Buildings, Agriculture, forestry and fishing fuel use;2024;;Latin America & Caribbean;Upper middle income;Subnational - State/Province;24,833333;-104,833333
+Hungary Carbon tax;Carbon tax;Implemented;Hungary;0,323;0,0003975950879317;Electricity and heat, Aviation;2023;;Europe & Central Asia;High income;National;47,1817585;19,5060937
+Albania Carbon tax;Carbon tax;Implemented;Albania;0,73;0,0001083527753822;Industry, Transport, Aviation, Agriculture, forestry and fishing fuel use;2008;;Europe & Central Asia;Upper middle income;National;5,7587654;-73,9151617
+Chile ETS;ETS;Under consideration;Chile;;;;2016;;Latin America & Caribbean;High income;National;-31,7613365;-71,3187697
+Colombia ETS;ETS;Under development;Colombia;;;;2016;;Latin America & Caribbean;Upper middle income;National;4,099917;-72,9088133
+Japan ETS;ETS;Under development;Japan;;;;2016;;East Asia & Pacific;High income;National;36,5748441;139,2394179
+Thailand ETS;ETS;Under consideration;Thailand;;;;2016;;East Asia & Pacific;Upper middle income;National;14,8971921;100,83273
+Türkiye ETS;ETS;Under development;Türkiye;;;;2016;;Europe & Central Asia;Upper middle income;National;39,294076;35,2316631
+Ukraine ETS;ETS;Under development;Ukraine;;;;2016;;Europe & Central Asia;Lower middle income;National;49,4871968;31,2718321
+Oregon ETS;ETS;Under development;Oregon;;;Electricity and heat, Industry, Mining and extractives, Transport, Buildings, Agriculture, forestry and fishing fuel use;2016;;North America;High income;Subnational - State/Province;43,9792797;-120,737257
+Brazil ETS;ETS;Under consideration;Brazil;;;;2022;;Latin America & Caribbean;Upper middle income;National;-10,3333333;-53,2
+Taiwan, China ETS;ETS;Under consideration;Taiwan, China;;;;2016;;East Asia & Pacific;Upper middle income;Subnational - State/Province;24,93836745;118,58541419241348
+Viet Nam ETS;ETS;Under development;Viet Nam;;;Electricity and heat, Industry, Mining and extractives, Transport, Aviation, Buildings, Agriculture, forestry and fishing fuel use, Agricultural emissions, Waste, LULUCF;2017;;East Asia & Pacific;Lower middle income;National;15,9266657;107,9650855
+Catalonia Carbon tax;Carbon tax;Under development;Catalonia;;;;2018;;Europe & Central Asia;High income;Subnational - State/Province;41,8523094;1,5745043
+Côte d’Ivoire Carbon tax;Carbon tax;Under consideration;Côte d’Ivoire;;;;2018;;Sub-Saharan Africa;Lower middle income;National;7,9897371;-5,5679458
+Senegal Carbon tax;Carbon tax;Under consideration;Senegal;;;;2019;;Sub-Saharan Africa;Lower middle income;National;14,4750607;-14,4529612
+Pennsylvania ETS;ETS;Under development;Pennsylvania;;;;2019;;North America;High income;Subnational - State/Province;40,9699889;-77,7278831
+Manitoba ETS;ETS;Under consideration;Manitoba;;;;2018;;North America;High income;Subnational - State/Province;55,001251;-97,001038
+Manitoba Carbon tax;Carbon tax;Under consideration;Manitoba;;;;2018;;North America;High income;Subnational - State/Province;55,001251;-97,001038
+Jalisco Carbon tax;Carbon tax;Under consideration;Jalisco;;;;2020;;Latin America & the Caribbean;Upper middle income;Subnational - State/Province;20,3333331;-103,6666671
+Botswana Carbon tax;Carbon tax;Under consideration;Botswana;;;;2022;;Sub-Saharan Africa;Upper middle income;National;-23,1681782;24,5928742
+Brunei Darussalam Undecided;ETS;Under consideration;Brunei Darussalam;;;;2021;;East Asia & Pacific;High income;National Undecided;4,4137155;114,5653908
+Hawaii Carbon tax;Carbon tax;Under consideration;Hawaii;;;;2021;;North America;High income;Subnational - State/Province;19,593801499999998;-155,42837009716908
+Indonesia Carbon tax;Carbon tax;Under consideration;Indonesia;;;Electricity and heat, Industry;2021;;East Asia & Pacific;Upper middle income;National;-2,4833826;117,8902853
+Israel Carbon tax;Carbon tax;Under consideration;Israel;;;;2021;;Middle East & North Africa;High income;National;30,8124247;34,8594762
+Malaysia ETS;ETS;Under consideration;Malaysia;;;;2021;;East Asia & Pacific;Upper middle income;National;4,5693754;102,2656823
+Pakistan ETS;ETS;Under consideration;Pakistan;;;;2021;;Middle East & North Africa;Lower middle income;National;30,3308401;71,247499
+Sakhalin ETS;ETS;Under development;Sakhalin;;;;2021;;East Asia & Pacific;High income;Subnational - State/Province;50,15947595;143,02644118600944
+Morocco Carbon tax;Carbon tax;Under consideration;Morocco;;;;2022;;Middle East & North Africa;Lower middle income;National;28,3347722;-10,371337908392647
+Gabon ETS;ETS;Under consideration;Gabon;;;;2022;;Sub-Saharan Africa;Upper middle income;National;-0,8999695;11,6899699
+Nigeria ETS;ETS;Under consideration;Nigeria;;;;2022;;Sub-Saharan Africa;Lower middle income;National;9,6000359;7,9999721
+EU ETS2;ETS;Under development;EU27+;;;;2023;;Europe & Central Asia;High income;Regional;;
+New York State ETS;ETS;Under development;New York State;;;;2023;;North America;High income;Subnational - State/Province;43,1561681;-75,8449946
+India ETS;ETS;Under development;India;;;;2024;;Middle East & North Africa;Lower middle income;National;22,3511148;78,6677428
+New Zealand Carbon tax;Carbon tax;Under consideration;New Zealand;;;;2022;;East Asia & Pacific;High income;National;-41,5000831;172,8344077
+San Luis Potosí carbon tax;Carbon tax;Under development;San Luis Potosí;;;;2024;;Latin America & the Caribbean;Upper middle income;Subnational - State/Province;22,5000001;-100,4949145
+Argentina  ETS;ETS;Under consideration;Argentina;;;;2024;;Latin America & Caribbean;Upper middle income;National;-34,9964963;-64,9672817
+Canada ETS;ETS;Under development;Canada;;;;2024;;North America;High income;National;61,0666922;-107,991707
+Colorado ETS;ETS;Under development;Colorado;;;;2024;;North America;High income;Subnational - State/Province;38,7251776;-105,607716
+Colima Carbon tax;Carbon tax;Under consideration;Colima;;;;2024;;Latin America & the Caribbean;Upper middle income;Subnational - State/Province;19,166667;-104,0
+Maryland ETS;ETS;Under consideration;Maryland;;;;2024;;North America;High income;Subnational - State/Province;39,5162401;-76,9382069
+Philippines Undecided;ETS;Under consideration;Philippines;;;;2024;;East Asia & Pacific;Lower middle income;National Undecided;12,7503486;122,7312101
+Kenya Carbon tax;Carbon tax;Under consideration;Kenya;;;;2024;;Sub-Saharan Africa;Lower middle income;National;1,4419683;38,4313975
+Mauritania Carbon tax;Carbon tax;Under consideration;Mauritania;;;;2024;;Middle East & North Africa;Lower middle income;National;20,2540382;-9,2399263
+Paraguay Carbon tax;Carbon tax;Under consideration;Paraguay;;;;2024;;Latin America & the Caribbean;Upper middle income;National;-23,3165935;-58,1693445
+Prince Edward Island Carbon tax;Carbon tax;Abolished;Prince Edward Island;;;Electricity and heat, Industry, Mining and extractives, Transport, Aviation, Agriculture, forestry and fishing fuel use;2019;2023,0;North America;High income;Subnational - State/Province;46,3355508;-63,1466676
+Newfoundland and Labrador carbon tax;Carbon tax;Abolished;Newfoundland and Labrador;;;Industry, Transport, Buildings, Agriculture, forestry and fishing fuel use;2019;2023,0;North America;High income;Subnational - State/Province;53,8217327;-61,2295532
+New Brunswick carbon tax;Carbon tax;Abolished;New Brunswick;;;Industry, Mining and extractives, Transport, Buildings, Agriculture, forestry and fishing fuel use;2020;2023,0;North America;High income;Subnational - State/Province;46,500283;-66,750183
+Baja California carbon tax;Carbon tax;Abolished;Baja California;;;Electricity and heat, Industry, Mining and extractives, Transport, Buildings, Agriculture, forestry and fishing fuel use;2020;2021,0;Latin America & Caribbean;Upper middle income;Subnational - State/Province;30,0338923;-115,1425107
+Tamaulipas carbon tax;Carbon tax;Abolished;Tamaulipas;;;Electricity and heat, Industry, Mining and extractives, Buildings, Waste;2022;2023,0;Latin America & Caribbean;Upper middle income;Subnational - State/Province;23,9891553;-98,7026825
+Australia CPM;ETS;Abolished;Australia;;;Electricity and heat, Industry, Mining and extractives, Transport, Aviation;2012;2014,0;East Asia & Pacific;High income;National;-24,7761086;134,755
+Alberta carbon tax;Carbon tax;Abolished;Alberta;;;Transport, Buildings;2017;2019,0;North America;High income;Subnational - State/Province;55,001251;-115,002136
+Ontario CaT;ETS;Abolished;Ontario;;;Electricity and heat, Industry, Mining and extractives, Transport, Aviation, Buildings, Agriculture, forestry and fishing fuel use, Agricultural emissions, Waste, LULUCF;2017;2018,0;North America;High income;Subnational - State/Province;50,000678;-86,000977
