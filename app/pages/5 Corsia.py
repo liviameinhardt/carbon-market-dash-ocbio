@@ -15,9 +15,9 @@ st.title("CORSIA")
 st.write("Fontes: CORSIA (2024); Ecosystem Marketplace (2022)")
 st.markdown("##")
 
-corsia_countries = pd.read_excel("data/processed/DADOS_MANUAIS.xlsx", sheet_name="CORSIA_countries")
-corsia_precos = pd.read_excel("data/processed/DADOS_MANUAIS.xlsx", sheet_name="CORSIA_price",index_col=0)
-iso_countries = pd.read_csv("data/processed/iso_countries.csv", sep=";", decimal=",", index_col=1)
+corsia_countries = pd.read_excel("..\..\data\processed\DADOS_MANUAIS.xlsx", sheet_name="CORSIA_countries")
+corsia_precos = pd.read_excel("..\..\data\processed\DADOS_MANUAIS.xlsx", sheet_name="CORSIA_price",index_col=0)
+iso_countries = pd.read_csv("..\..\data\processed\iso_countries.csv", sep=";", decimal=",", index_col=1)
 
 #get ISO country codes
 corsia_countries['country'] = corsia_countries['country'].str.strip()

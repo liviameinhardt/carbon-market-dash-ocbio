@@ -23,9 +23,9 @@ st.text("Fonte: Banco Mundial (Abril, 2024)")  #automatico (criar um info.txt)
 st.markdown("##")
 
 # Carregar os dados
-data_wb = pd.read_csv("data\processed\wb_info.csv",sep=";",decimal=",")
-series_wb = pd.read_csv("data\processed\wb_time_series.csv",sep=";",decimal=",")
-iso = pd.read_csv("data/processed/iso_countries.csv", on_bad_lines='skip',delimiter=';',index_col=1)
+data_wb = pd.read_csv("..\..\data\processed\wb_info.csv",sep=";",decimal=",")
+series_wb = pd.read_csv("..\..\data\processed\wb_time_series.csv",sep=";",decimal=",")
+iso = pd.read_csv("..\..\data\processed\iso_countries.csv", on_bad_lines='skip',delimiter=';',index_col=1)
 
 data_wb = data_wb[data_wb["Type"]=="ETS"]
 series_wb =series_wb[series_wb["Instrument Type"]=="ETS"]
@@ -176,10 +176,10 @@ st.write("Fontes: Refinitiv  European Energy Exchange, California Air Resources 
 st.markdown("##")
 
 # Carregar os dados
-eu_ets  = pd.read_excel("data/processed/DADOS_MANUAIS.xlsx", sheet_name="EU_ETS_Carbon_permits",index_col=0)
-california_ets  = pd.read_excel("data/processed/DADOS_MANUAIS.xlsx", sheet_name="CaliforniaQuébec_Carbon",index_col=0)
-china_ets = pd.read_excel("data/processed/DADOS_MANUAIS.xlsx", sheet_name="CHINA_ETS",index_col=0)
-rggi_ets = pd.read_excel("data/processed/DADOS_MANUAIS.xlsx", sheet_name="RGGI_USD_Volume",index_col=0)
+eu_ets  = pd.read_excel("..\..\dataprocessed\DADOS_MANUAIS.xlsx", sheet_name="EU_ETS_Carbon_permits",index_col=0)
+california_ets  = pd.read_excel("..\..\dataprocessed\DADOS_MANUAIS.xlsx", sheet_name="CaliforniaQuébec_Carbon",index_col=0)
+china_ets = pd.read_excel("..\..\dataprocessed\DADOS_MANUAIS.xlsx", sheet_name="CHINA_ETS",index_col=0)
+rggi_ets = pd.read_excel("..\..\dataprocessed\DADOS_MANUAIS.xlsx", sheet_name="RGGI_USD_Volume",index_col=0)
 
 eu_ets.index = pd.to_datetime(eu_ets.index)
 california_ets.index = pd.to_datetime(california_ets.index)
