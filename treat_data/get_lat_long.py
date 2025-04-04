@@ -22,7 +22,7 @@ def get_lat_long(locations):
     """
 
     # Load the coordinates dictionary if it exists
-    with open('../data/processed/coords.pkl', 'rb') as f:
+    with open('data/processed/coords.pkl', 'rb') as f:
         coords = pickle.load(f)
 
     # Check if the coordinates for the locations are already in the dictionary
@@ -40,7 +40,7 @@ def get_lat_long(locations):
         missing_coords = [place for place in locations if place not in coords]
         print("The following locations could not be found:",missing_coords)
 
-        with open('../data/processed/coords.pkl', 'wb') as f:
+        with open('data/processed/coords.pkl', 'wb') as f:
             pickle.dump(coords, f)
 
     return coords
@@ -109,7 +109,7 @@ def update_geojson(locations):
     """
 
     # Load the coordinates dictionary if it exists
-    with open('../data/processed/geojson.pkl', 'rb') as f:
+    with open('data/processed/geojson.pkl', 'rb') as f:
         features_list = pickle.load(f)
 
     missing_features = [i for i in locations if i not in [i['properties']['Country'] for i in features_list]]
@@ -126,7 +126,7 @@ def update_geojson(locations):
 
             features_list+=new_features
 
-            with open('../data/processed/geojson.pkl', 'wb') as f:
+            with open('data/processed/geojson.pkl', 'wb') as f:
                 pickle.dump(features_list, f)
                 
         still_missing = [i for i in missing_features if i not in [i['properties']['Country'] for i in new_features]]
@@ -151,12 +151,12 @@ def update_location_data():
         mvc['lat'] = mvc['Country'].map(lambda x: coords[x].latitude if coords[x] else None)
         mvc['lon'] = mvc['Country'].map(lambda x: coords[x].longitude if coords[x] else None)
 
-        data_wb.to_csv("../data/processed/wb_info.csv", sep=";", decimal=",", index=False)
-        mvc.to_csv("../data/processed/mvc_credits_info.csv", sep=";", decimal=",", index=False)
+        data_wb.to_csv("data/processed/wb_info.csv", sep=";", decimal=",", index=False)
+        mvc.to_csv("data/processed/mvc_credits_info.csv", sep=";", decimal=",", index=False)
         
 
-    data_wb = pd.read_csv("../data\processed\wb_info.csv",sep=";",decimal=",")
-    mvc = pd.read_csv("../data/processed/mvc_credits_info.csv",sep=";",decimal=",")
+    data_wb = pd.read_csv("data\processed\wb_info.csv",sep=";",decimal=",")
+    mvc = pd.read_csv("data/processed/mvc_credits_info.csv",sep=";",decimal=",")
     locations = set(data_wb["Jurisdiction covered"].unique()).union(set(mvc["Country"].unique()))
 
     update_coords(locations)

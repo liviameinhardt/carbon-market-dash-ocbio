@@ -4,7 +4,7 @@ from datetime import datetime
 import numpy as np 
 
 
-def update_mvc(file_path='../data/raw/dados_mvc.xlsx'):
+def update_mvc(file_path='data/raw/dados_mvc.xlsx'):
         
     df = pd.read_excel(file_path,
                     sheet_name='PROJECTS',
@@ -55,8 +55,8 @@ def update_mvc(file_path='../data/raw/dados_mvc.xlsx'):
     credits = pd.concat([retired_credits,issued_credtis,vintage_credits],axis=1).replace(0,np.nan).dropna()
    
     #save data
-    credits.to_csv("../data/processed/mvc_credits.csv",sep=";",decimal=",")
-    df.to_csv("../data/processed/mvc_credits_info.csv",sep=";",decimal=",")
+    credits.to_csv("data/processed/mvc_credits.csv",sep=";",decimal=",")
+    df.to_csv("data/processed/mvc_credits_info.csv",sep=";",decimal=",")
 
     print("Done MCV")
     

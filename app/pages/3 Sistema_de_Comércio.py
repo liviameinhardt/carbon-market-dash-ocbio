@@ -176,10 +176,10 @@ st.write("Fontes: Refinitiv  European Energy Exchange, California Air Resources 
 st.markdown("##")
 
 # Carregar os dados
-eu_ets  = pd.read_excel("dataprocessed/DADOS_MANUAIS.xlsx", sheet_name="EU_ETS_Carbon_permits",index_col=0)
-california_ets  = pd.read_excel("dataprocessed/DADOS_MANUAIS.xlsx", sheet_name="CaliforniaQuébec_Carbon",index_col=0)
-china_ets = pd.read_excel("dataprocessed/DADOS_MANUAIS.xlsx", sheet_name="CHINA_ETS",index_col=0)
-rggi_ets = pd.read_excel("dataprocessed/DADOS_MANUAIS.xlsx", sheet_name="RGGI_USD_Volume",index_col=0)
+eu_ets  = pd.read_excel("data/processed/DADOS_MANUAIS.xlsx", sheet_name="EU_ETS_Carbon_permits",index_col=0)
+california_ets  = pd.read_excel("data/processed/DADOS_MANUAIS.xlsx", sheet_name="CaliforniaQuébec_Carbon",index_col=0)
+china_ets = pd.read_excel("data/processed/DADOS_MANUAIS.xlsx", sheet_name="CHINA_ETS",index_col=0)
+rggi_ets = pd.read_excel("data/processed/DADOS_MANUAIS.xlsx", sheet_name="RGGI_USD_Volume",index_col=0)
 
 eu_ets.index = pd.to_datetime(eu_ets.index)
 california_ets.index = pd.to_datetime(california_ets.index)

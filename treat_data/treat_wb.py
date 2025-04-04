@@ -7,9 +7,9 @@ import numpy as np
 import re
 
 
-def update_wb(file_path='../data/raw/dados_wb.xlsx',
-              save_path="../data/processed",
-              countries_info_data="../data/raw/extra_country_info.csv"):
+def update_wb(file_path='data/raw/dados_wb.xlsx',
+              save_path="data/processed",
+              countries_info_data="data/raw/extra_country_info.csv"):
     """
     This function reads the data from the World Bank excel file and treats it to be used in the project.
 
