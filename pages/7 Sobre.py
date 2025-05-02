@@ -2,6 +2,12 @@ import streamlit as st
 
 
 st.logo('data/logo.png', icon_image='data/logo.png',size='large')
+st.set_page_config (
+    page_title="Sobre",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
+
 
 st.markdown(""" 
 ### 📊 **Dashboard: Precificação de Carbono**  
@@ -23,5 +29,5 @@ A precificação do carbono é essencial para reduzir as emissões de gases de e
 st.link_button("Saiba mais sobre a FGV Agro",
                url="https://agro.fgv.br/")
 
-st.markdown("##")
-st.subheader("Fontes de Dados")
+# st.markdown("##")
+# st.subheader("Fontes de Dados")

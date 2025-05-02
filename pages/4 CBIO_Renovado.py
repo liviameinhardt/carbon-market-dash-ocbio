@@ -67,21 +67,21 @@ with receita:
 
     st.plotly_chart(fig, use_container_width=True)
 
-# if not freq:
-grafico, filtro = st.columns([5,2])
+# # if not freq:
+# grafico, filtro = st.columns([5,2])
 
-data = cbio_negociacoes.join(cbio_data)
+# data = cbio_negociacoes.join(cbio_data)
 
-with filtro:
+# with filtro:
 
-    xaxis = st.selectbox("Eixo X", data.columns, index=0)
-    yaxis = st.selectbox("Eixo Y", data.drop(xaxis,axis=1).columns, index=2)
+#     xaxis = st.selectbox("Eixo X", data.columns, index=0)
+#     yaxis = st.selectbox("Eixo Y", data.drop(xaxis,axis=1).columns, index=2)
 
-with grafico:
+# with grafico:
     
-    fig = px.scatter(data, x=xaxis, y=yaxis, 
-                     title=f"Relação entre {xaxis} e {yaxis} <br><sup>{data.index[0].date()} - {data.index[-1].date()}<sup>")
+#     fig = px.scatter(data, x=xaxis, y=yaxis, 
+#                      title=f"Relação entre {xaxis} e {yaxis} <br><sup>{data.index[0].date()} - {data.index[-1].date()}<sup>")
     
-    st.plotly_chart(fig, use_container_width=True)
+#     st.plotly_chart(fig, use_container_width=True)
 
 

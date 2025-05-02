@@ -84,9 +84,14 @@ else:
                                 "Número de Projetos":"Número de Projetos"},
                         scope="world")
 
-    fig.update_geos(fitbounds="locations", visible=False, showcountries=True)
+    fig.update_geos(fitbounds="locations", visible=False, showcountries=True,
+                     showocean=True, oceancolor="rgba(0, 0, 0, 0)",
+                     showland=True, landcolor="rgba(0, 0, 0, 0)",)
 
     fig.update_layout(
+                 
+    plot_bgcolor = "rgba(0, 0, 0, 0)",
+    paper_bgcolor = "rgba(0, 0, 0, 0)",
 
         title=dict(text=f"{dado} por País | {tempo_info} <br>{setor_info}", font=dict(size=20),),
             height=500,
@@ -96,6 +101,7 @@ else:
                 orientation="v",x=0,xanchor="center",
                 y=1,yanchor="auto", font=dict(size=15)
             ),
+           
 
         )
 

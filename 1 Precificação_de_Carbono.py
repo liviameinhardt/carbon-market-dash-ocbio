@@ -105,6 +105,7 @@ with mapa:
                         projection="equirectangular",
                     labels={"Type":"Tipo de Iniciativa"})
     
+    if tamanho_marcador=="Padrão" : fig.update_traces(marker=dict(size=10))
     fig.update_geos(fitbounds="locations", visible=False, showcountries=True)
     
     substitle = "" if tamanho_marcador=="Padrão" else "Marcadores proporcionais ao percentual de cobertura da jurisdição"
@@ -140,24 +141,33 @@ with barras:
 
     eixo_x = col1.radio(
         "Agregar por",
-        options=["Region", "Income group"],horizontal=True,index=1
+        options=["Region", "Income group","Status"],horizontal=True,index=2
     )
 
-    filtro_dados = col2.radio(
-        "Tipo da Iniciativa",
-        options=data_wb["Type"].unique(),
-        horizontal=True)
-    
-    barra_data = data_wb[data_wb["Type"]==filtro_dados].groupby([eixo_x,'Status'])["Subtype"]\
+    if eixo_x != "Status":
+            
+        filtro_dados = col2.selectbox(
+            "Status da Iniciativa",
+            options=data_wb["Status"].unique(), key='col1'
+        )
+
+        filtro_leg = " | "+filtro_dados
+        filtro_dados = [filtro_dados]
+
+    else:
+        filtro_dados = data_wb["Status"].unique()
+        filtro_leg = ""
+
+    barra_data = data_wb[data_wb["Status"].isin(filtro_dados)].groupby([eixo_x,'Type'])['Instrument name']\
                         .count()\
                         .to_frame().reset_index()
-
+    
     fig = px.bar(barra_data, x=eixo_x, 
-                 y="Subtype", color="Status", 
+                 y="Instrument name", color="Type", 
                  barmode='group',
                 text_auto=True,
                  labels={"Subtype":"Número de Iniciativas","Status":""},
-                 title=f"Distribuição de Iniciativas {filtro_dados} por {eixo_x} e Status",)
+                 title=f"Distribuição de Iniciativas por {eixo_x} {filtro_leg}",)
 
 
 

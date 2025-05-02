@@ -71,12 +71,13 @@ national["iso_alpha"] = national["Jurisdiction covered"].map(iso["ISO"].to_dict(
 fig = px.choropleth(national, color="Status",
                     locations="iso_alpha", hover_data=["Jurisdiction covered"],
                      projection="equirectangular", labels={"Status":"National"},
+                      color_discrete_sequence=px.colors.qualitative.Pastel2,
                  )
 
 # add marker to subnational carbon tax 
 subnational = data_wb[data_wb["Subtype"]=="Subnational - State/Province"].copy()
 
-colors = px.colors.qualitative.T10
+colors = px.colors.qualitative.Dark2
 class_color_map = {cls: colors[i % len(colors)] for i, cls in enumerate(subnational["Status"].unique())}
 
 for status in subnational["Status"].unique():
@@ -95,10 +96,14 @@ for status in subnational["Status"].unique():
     ))
 
 
-fig.update_geos(fitbounds="locations", visible=False, showcountries=True)
+fig.update_geos(fitbounds="locations", visible=False, showcountries=True, showocean=True, oceancolor="rgba(0, 0, 0, 0)",
+                     showland=True, landcolor="rgba(0, 0, 0, 0)",)
 
 fig.update_layout(
 
+    plot_bgcolor = "rgba(0, 0, 0, 0)",
+    paper_bgcolor = "rgba(0, 0, 0, 0)",
+    
     title=dict(text="Status - Mercados de Taxa de Carbono", font=dict(size=20),),
         
         width=700,

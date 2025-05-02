@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
+import plotly.colors as pc
 
 st.logo('data/logo.png', icon_image='data/logo.png',size='large')
 
@@ -34,6 +35,10 @@ paises_nao_participantes = initial_year[initial_year['max'] != corsia_countries[
 initial_year = initial_year[initial_year["max"]==corsia_countries['year'].max()].reset_index().sort_values("min")
 initial_year['min'] = initial_year['min'].astype(str)
 
+
+n = len(initial_year['min'].unique())+1
+blue_shades = pc.sample_colorscale("Blues", [i / (n - 1) for i in range(n)])[1:]
+
 ######### gráfico mapa #########
 
 filtro, grafico = st.columns([1, 3], gap="large")
@@ -55,7 +60,8 @@ with grafico:
                             # color="year",
                             hover_name="country",
                             # hover_data={i:False for i in initial_year.columns},
-                            labels={'year': 'Ano de Entrada'})
+                            labels={'year': 'Ano de Entrada'},
+                            color_discrete_sequence=blue_shades)
         
         fig.update_layout(
             title=dict(text=f"Países participantes do CORSIA | {select_year}", font=dict(size=20),),
@@ -66,12 +72,15 @@ with grafico:
 
     else:
 
+        print(blue_shades)
+
         fig = px.choropleth(initial_year, 
                         locations="ISO", 
                         color="min",
                         hover_name="country",
                         hover_data={i:False for i in initial_year.columns},
-                        labels={'min': 'Ano de Entrada',})
+                        labels={'min': 'Ano de Entrada',},
+                        color_discrete_sequence=blue_shades)
 
 
         fig.update_layout(
@@ -84,9 +93,13 @@ with grafico:
                     y=1,yanchor="auto", font=dict(size=15)
                 ),
 
+    plot_bgcolor = "rgba(0, 0, 0, 0)",
+    paper_bgcolor = "rgba(0, 0, 0, 0)",
+    
         )
 
-    fig.update_geos(fitbounds="locations", visible=False, showcountries=True)
+    fig.update_geos(fitbounds="locations", visible=False, showcountries=True, showocean=True, oceancolor="rgba(0, 0, 0, 0)",
+                     showland=True, landcolor="rgba(0, 0, 0, 0)",)
 
     st.plotly_chart(fig, use_container_width=True)
 
