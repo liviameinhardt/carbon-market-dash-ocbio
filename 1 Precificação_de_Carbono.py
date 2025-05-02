@@ -6,7 +6,6 @@ import plotly.express as px
 st.logo('data/logo.png', icon_image='data/logo.png',size='large')
 st.set_page_config (
     page_title="Precificação de Carbono",
-    page_icon="🌍",
     layout="wide",
     initial_sidebar_state="expanded"
 )

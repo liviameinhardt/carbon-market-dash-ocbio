@@ -11,7 +11,6 @@ from utils import graficos as g
 st.logo('data/logo.png', icon_image='data/logo.png',size='large')
 st.set_page_config (
     page_title="Taxa de Carbono",
-    page_icon="🌍",
     layout="wide",
     initial_sidebar_state="expanded"
 )

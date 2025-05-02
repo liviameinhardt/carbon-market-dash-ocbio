@@ -14,7 +14,6 @@ colors = px.colors.qualitative.T10
 st.logo('data/logo.png', icon_image='data/logo.png',size='large')
 st.set_page_config (
     page_title="Sistema de Comércio de Emissões",
-    page_icon="🌍",
     layout="wide",
     initial_sidebar_state="expanded"
 )
