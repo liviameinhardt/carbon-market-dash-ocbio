@@ -1,6 +1,7 @@
 import streamlit as st
 
 
+st.logo('data/logo.png', icon_image='data/logo.png',size='large')
 
 st.markdown(""" 
 ### 📊 **Dashboard: Precificação de Carbono**  
