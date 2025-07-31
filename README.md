@@ -6,10 +6,10 @@ Este repositório contém todos os códigos, dados e instruções necessários p
 
 ## Como rodar o dashboard
 
-1. Certifique-se de que tem o **Streamlit** instalado:
+1. Certifique-se de que tem os requisitos instalados:
 
    ```bash
-   pip install streamlit
+   pip install -r requirements.txt
    ```
 
 2. Execute a página inicial do dashboard:
@@ -92,5 +92,10 @@ utils/                  # Funções auxiliares utilizadas no dashboard
 
 ### Demais bases
 
-* Edite manualmente a planilha:
+1. Edite manualmente a planilha:
   `data/processed/DADOS_MANUAIS.xlsx`
+
+2. Salve a data de referência do **dado** mais recente (e não de download) em:
+  `data/update_info.csv`
+
+

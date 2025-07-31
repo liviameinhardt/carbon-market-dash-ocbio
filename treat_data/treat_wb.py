@@ -7,6 +7,21 @@ import pandas as pd
 import numpy as np 
 import re
 
+meses = {
+    "January": "Janeiro",
+    "February": "Fevereiro",
+    "March": "Março",
+    "April": "Abril",
+    "May": "Maio",
+    "June": "Junho",
+    "July": "Julho",
+    "August": "Agosto",
+    "September": "Setembro",
+    "October": "Outubro",
+    "November": "Novembro",
+    "December": "Dezembro"
+}
+
 def update_wb(file_path='data/raw/dados_wb.xlsx',
               save_path="data/processed",
               countries_info_data="data/raw/extra_country_info.csv"):
@@ -18,6 +33,15 @@ def update_wb(file_path='data/raw/dados_wb.xlsx',
         save_path (str): The path to save the processed data.
         countries_info_data (str): The path to the csv file with additional country information. (Expected columns: Jurisdiction;Income Group;Region)
     """
+    #get update info
+    last_update = pd.read_excel(file_path, nrows=1, usecols=[0]).columns[0]\
+                        .replace("Data last updated ","")
+
+    mes_traducao = [(k,v) for k,v in meses.items() if k in last_update][0]
+    last_update = last_update.replace(mes_traducao[0], mes_traducao[1])
+
+    last_update_db = pd.read_csv('../data/update_info.csv',index_col=0)
+    last_update_db.loc['WB'] = last_update
 
     #read data
     df_info = pd.read_excel(file_path,
@@ -187,6 +211,8 @@ def update_wb(file_path='data/raw/dados_wb.xlsx',
     df_info.to_csv(f"{save_path}/wb_info.csv",
                 index=False,sep=";",decimal=",")
 
+
+    last_update_db.to_csv('data/update_info.csv')
 
     print("Done WB")
 

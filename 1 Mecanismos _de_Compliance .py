@@ -14,10 +14,11 @@ c.sobre_dash(expanded=True)
 # Carregar os dados
 data_wb = pd.read_csv("data/processed/wb_info.csv",sep=";",decimal=",")
 series_wb = pd.read_csv("data/processed/wb_time_series.csv",sep=";",decimal=",")
+update_info = pd.read_csv("data/update_info.csv",index_col=0)['Last Update']
 
 # Informações gerais
 st.title("Mecanismos de Compliance")
-st.text("Fonte: Banco Mundial (Abril, 2024)") 
+st.text(f"Fonte: Banco Mundial ({update_info['WB']})") 
 
 # Estatisticas de data_wb
 percent_emissoes = sum(data_wb["Share of global emissions covered"].dropna())*100

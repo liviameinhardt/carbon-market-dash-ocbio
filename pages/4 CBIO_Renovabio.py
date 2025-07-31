@@ -12,12 +12,13 @@ c.pag_config(os.path.basename(__file__))
 c.sobre_dash()
 ############################## Configurações da página (fim) ##############################
 
-st.title("CBIO Renovabio")
-st.write("Fonte: B3 (Março, 2025)")
-
 # Carregar os dados
 cbio_data = pd.read_csv("data/processed/cbio_data.csv",sep=";",decimal=",",index_col=0)
 cbio_data.index = pd.to_datetime(cbio_data.index)
+
+st.title("CBIO Renovabio")
+st.write(f"Fonte: B3 ({cbio_data.index.max().date()})")
+
 
 cbio_negociacoes = pd.read_csv("data/processed/cbio_negociacoes.csv",sep=";",decimal=",",index_col=0)
 cbio_negociacoes.index = pd.to_datetime(cbio_negociacoes.index)

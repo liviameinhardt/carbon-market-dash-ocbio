@@ -12,14 +12,11 @@ c.pag_config(os.path.basename(__file__))
 c.sobre_dash()
 ############################## Configurações da página (fim) ##############################
 
-st.title("Mercado Voluntário")
-st.write("Fontes: Berkeley carbon trading project (2025); Ecosystem Marketplace (2022)")
- 
-st.markdown("##") #espacamento entre blocos
 
 mvc_credits = pd.read_csv("data/processed/mvc_credits.csv", sep=";", decimal=",",index_col=0)
 mvc_credits_info = pd.read_csv("data/processed/mvc_credits_info.csv", sep=";", decimal=",",index_col=0)
 iso_countries = pd.read_csv("data/processed/iso_countries.csv", sep=";", decimal=",",index_col=1)
+update_info = pd.read_csv("data/update_info.csv",index_col=0)['Last Update']
 
 mvc_credits_info.rename(columns={"First Year of Project (Vintage)":"Start Year"},inplace=True)
 mvc_credits_info["Start Year"] = mvc_credits_info["Start Year"].astype(int, errors='ignore')
@@ -27,6 +24,14 @@ mvc_credits_info["Start Year"] = mvc_credits_info["Start Year"].astype(int, erro
 #copia para parte 2 do dash
 credits_pais = mvc_credits.copy()
 pais_info = mvc_credits_info.copy()
+
+
+#titulo
+st.title("Mercado Voluntário")
+st.write(f"Fontes: Berkeley carbon trading project ({update_info['Berkeley carbon trading project']}); Ecosystem Marketplace ({update_info['Ecosystem Marketplace']})")
+st.markdown("##") #espacamento entre blocos
+
+
 
 ## filtros ## 
 col1, col2 = st.columns([1, 5])

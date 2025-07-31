@@ -3,9 +3,34 @@ import pandas as pd
 from datetime import datetime
 import numpy as np 
 
+meses = {
+    "January": "Janeiro",
+    "February": "Fevereiro",
+    "March": "Março",
+    "April": "Abril",
+    "May": "Maio",
+    "June": "Junho",
+    "July": "Julho",
+    "August": "Agosto",
+    "September": "Setembro",
+    "October": "Outubro",
+    "November": "Novembro",
+    "December": "Dezembro"
+}
 
 def update_mvc(file_path='data/raw/dados_mvc.xlsx'):
         
+    #get update info
+    last_update = pd.read_excel(file_path, nrows=1, usecols=[0]).columns[0]\
+                        .split(" - ")[1].strip()[1:8]
+    
+    data_obj = datetime.datetime.strptime(last_update, '%Y-%m')
+    mes_traduzido = meses[data_obj.strftime('%B')]
+    last_update = f"{mes_traduzido}, {data_obj.year}"
+
+    last_update_db = pd.read_csv('../data/update_info.csv',index_col=0)
+    last_update_db.loc['MVC'] = last_update
+
     df = pd.read_excel(file_path,
                     sheet_name='PROJECTS',
                     header=3)
@@ -90,6 +115,8 @@ def update_mvc(file_path='data/raw/dados_mvc.xlsx'):
     #save data
     credits.to_csv("data/processed/mvc_credits.csv",sep=";",decimal=",")
     df.to_csv("data/processed/mvc_credits_info.csv",sep=";",decimal=",")
+
+    last_update_db.to_csv('data/update_info.csv')
 
     print("Done MCV")
     

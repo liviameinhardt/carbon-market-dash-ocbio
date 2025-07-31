@@ -12,16 +12,19 @@ c.pag_config(os.path.basename(__file__))
 c.sobre_dash()
 ############################## Configurações da página (fim) ##############################
 
-st.title("Mercados Regulados")
-st.text("Fonte: Banco Mundial (Abril, 2024)")  
 
 # Carregar os dados
 data_wb = pd.read_csv("data/processed/wb_info.csv",sep=";",decimal=",")
 series_wb = pd.read_csv("data/processed/wb_time_series.csv",sep=";",decimal=",")
 iso = pd.read_csv("data/processed/iso_countries.csv", on_bad_lines='skip',delimiter=';',index_col=1)
+update_info = pd.read_csv("data/update_info.csv",index_col=0)['Last Update']
 
 data_wb = data_wb[data_wb["Type"]=="Sistema  de comércio de licenças de emissão (ETS)"]
 series_wb =series_wb[series_wb["Instrument Type"]=="ETS"]
+
+# Informações gerais
+st.title("Mercados Regulados")
+st.text(f"Fonte: Banco Mundial ({update_info['WB']})")  
 
 # METRICAS (RESUMO)
 

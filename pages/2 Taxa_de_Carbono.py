@@ -12,17 +12,18 @@ c.pag_config(os.path.basename(__file__))
 c.sobre_dash()
 ############################## Configurações da página (fim) ##############################
 
-st.title("Taxa de Carbono")
-st.text("Fonte: Banco Mundial (Abril, 2024)")  
-st.markdown("##") #espacamento entre blocos
-
 # Carregar os dados
 data_wb = pd.read_csv("data/processed/wb_info.csv",sep=";",decimal=",")
 series_wb = pd.read_csv("data/processed/wb_time_series.csv",sep=";",decimal=",")
 iso = pd.read_csv("data/processed/iso_countries.csv", on_bad_lines='skip',delimiter=';',index_col=1)
+update_info = pd.read_csv("data/update_info.csv",index_col=0)['Last Update']
 
 data_wb = data_wb[data_wb["Type"]=="Taxas de Carbono"]
 series_wb =series_wb[series_wb["Instrument Type"]=="Taxas de Carbono"]
+
+st.title("Taxa de Carbono")
+st.text(f"Fonte: Banco Mundial ({update_info['WB']})")   
+st.markdown("##") #espacamento entre blocos
 
 # METRICAS (RESUMO)
 
