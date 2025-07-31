@@ -52,19 +52,19 @@ def update_cbio(aposentadoria,estoque,negociacoes):
     negociacoes.to_csv("data/processed/cbio_negociacoes.csv",sep=";",decimal=",")
     cbio.to_csv("data/processed/cbio_data.csv",sep=";",decimal=",")
 
-    return cbio, negociacoes
 
 
-# aposentadoria = pd.read_csv('data/raw/aposentadoria_cbio.csv',sep=";",encoding='latin1',decimal=",",thousands=".")
-# estoque = pd.read_csv('data/raw/estoque_cbio.csv',sep=";",encoding='latin1',decimal=",",thousands=".")
-# negociacoes = pd.read_csv('data/raw/negociacoes_cbio.csv',sep=";",encoding='latin1',decimal=",",thousands=".")
+if __name__ == "__main__":
+    aposentadoria = pd.read_csv('data/raw/cbio/aposentadoria_cbio.csv',sep=";",encoding='latin1',decimal=",",thousands=".")
+    estoque = pd.read_csv('data/raw/cbio/estoque_cbio.csv',sep=";",encoding='latin1',decimal=",",thousands=".")
+    negociacoes = pd.read_csv('data/raw/cbio/negociacoes_cbio.csv',sep=";",encoding='latin1',decimal=",",thousands=".")
 
-# cbio, negociacoes = update_data(aposentadoria,estoque,negociacoes)
-
-
-
+    update_cbio(aposentadoria,estoque,negociacoes)
 
 
+
+
+#ADICIONA DADOS 2020 (baixado separadamentes)
 # aposentadoria = pd.read_csv('data/raw/aposentadoria_cbio.csv',sep=";",encoding='latin1',decimal=",",thousands=".")
 # aposentadoria2020 = pd.read_csv('data/raw/aposentadoria2020.csv',sep=";")
 

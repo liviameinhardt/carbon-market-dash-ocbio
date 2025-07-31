@@ -4,3 +4,4 @@ data/raw/*
 data/processed/coords.pkl
 data/processed/geojson.pkl
 documentação.xlsx
+**/__pycache__/

@@ -1,31 +1,30 @@
+import os
 import streamlit as st  
 import pandas as pd
 import numpy as np
 import plotly.express as px
 
-st.logo('data/logo.png', icon_image='data/logo.png',size='large')
-st.set_page_config (
-    page_title="Precificação de Carbono",
-    layout="wide",
-    initial_sidebar_state="expanded"
-)
+from utils import components as c
+
+############################## Configurações da página (inicio) ##############################
+c.pag_config(os.path.basename(__file__))
+c.sobre_dash(expanded=True)
+############################## Configurações da página (fim) ##############################
 
 # Carregar os dados
 data_wb = pd.read_csv("data/processed/wb_info.csv",sep=";",decimal=",")
 series_wb = pd.read_csv("data/processed/wb_time_series.csv",sep=";",decimal=",")
 
-
 # Informações gerais
-st.title("Precificação de Carbono")
-st.text("Fonte: Banco Mundial (Abril, 2024)") #automatico (criar um info.txt)
-st.markdown("##")
+st.title("Mecanismos de Compliance")
+st.text("Fonte: Banco Mundial (Abril, 2024)") 
 
 # Estatisticas de data_wb
 percent_emissoes = sum(data_wb["Share of global emissions covered"].dropna())*100
 percent_emissoes_ano_anterior = sum(data_wb[data_wb["Start Year"]<data_wb["Start Year"].max()]["Share of global emissions covered"].dropna())*100
 crescimento_percent_emissoes = percent_emissoes - percent_emissoes_ano_anterior
 
-implementadas = data_wb[data_wb['Status']=="Implemented"]
+implementadas = data_wb[data_wb['Status']=="Implementado"]
 iniciativas_implementadas = len(implementadas["Instrument name"].unique())
 iniciativas_anteriores = len(implementadas[implementadas["Start Year"]<implementadas["Start Year"].max()]["Instrument name"].unique())
 crescimento_iniciativas = iniciativas_implementadas - iniciativas_anteriores
@@ -34,13 +33,13 @@ preco_medio = series_wb[series_wb["Year"]==series_wb["Year"].max()]["Price"].dro
 preco_medio_ano_anterior = series_wb[series_wb["Year"]==series_wb["Year"].max()-1]["Price"].dropna().mean()
 crescimento_preco_medio = preco_medio - preco_medio_ano_anterior
 
-#como deixar claro que o deltaé em relação ao ano anterior?
+#mostra metricas
 metrics_col = st.columns(3)
-metrics_col[0].metric(f"Iniciativas Implementadas", iniciativas_implementadas, f"{crescimento_iniciativas}", border=True)
-metrics_col[1].metric("Percentual de emissões globais cobertas", f"{percent_emissoes:.2f}%",delta=f"{crescimento_percent_emissoes:.2f}%", border=True)
-metrics_col[2].metric("Preço médio (US$/tCO2e)", f"{preco_medio:.2f}", delta=f"{crescimento_preco_medio:.2f} USD", border=True)
-
-st.markdown("##")
+metrics_col[0].metric(f"Iniciativas Implementadas", iniciativas_implementadas, f"{crescimento_iniciativas}", border=True,help='Variação em relação ao ano anterior abaixo')
+metrics_col[1].metric("Percentual de emissões globais cobertas", f"{percent_emissoes:.2f}%",delta=f"{crescimento_percent_emissoes:.2f}%", border=True,help='Variação em relação ao ano anterior abaixo')
+metrics_col[2].metric("Preço médio (US$/tCO2e)", f"{preco_medio:.2f}", delta=f"{crescimento_preco_medio:.2f} USD", border=True,help='Variação em relação ao ano anterior abaixo')
+ 
+st.markdown("##") #espacamento entre blocos
 
 #Mapa das Iniciativas
 mapa, filtros = st.columns([3,1])
@@ -55,12 +54,12 @@ with filtros:
     )
 
     tipo = st.multiselect(
-        "Subtype",
+        "Abrangência",
         options=data_wb["Subtype"].unique(),
         default=data_wb["Subtype"].unique()
     )
 
-    if status=="Implemented":
+    if status=="Implementado":
             
         tamanho_marcador = st.radio(
             "Tamanho do marcador",
@@ -78,59 +77,63 @@ with mapa:
                         (data_wb["lat"].notnull() )]
     
     map_data["Share of jurisdiction emissions covered"].fillna(0,inplace=True)
+    map_data["Share of global emissions covered"].fillna(0,inplace=True)
+
     hover_txt = {col:False for col in map_data.columns}
 
-    if status  == "Implemented":
+    if status  == "Implementado":
         hover_txt["Share of jurisdiction emissions covered"] =  f":.2%"
         hover_txt["Share of global emissions covered"] = f":.2%"
         hover_txt["Subtype"] = True
     else:
         hover_txt["Subtype"] = True
 
-    # mapa = st.radio("Mapa", ("Open Street Map", "Natural Earth"), index=0, horizontal=True)
 
-    # if mapa == "Open Street Map":
-    #     fig = px.scatter_map(map_data, lat="lat", lon="lon", color="Type",
-    #                     hover_name="Instrument name", hover_data=hover_txt,
-    #                     size= None if tamanho_marcador=="Padrão" else "Share of jurisdiction emissions covered",
-    #                     labels={"Type":"Tipo de Iniciativa"},
-    #                     map_style='open-street-map', zoom=0.7)
-        
-        # fig.update_traces(cluster=dict(enabled=True))
-
-# else:
     fig = px.scatter_geo(map_data, lat="lat", lon="lon", color="Type",
                     hover_name="Instrument name", hover_data=hover_txt,
                     size= None if tamanho_marcador=="Padrão" else "Share of jurisdiction emissions covered",
                         projection="equirectangular",
                     labels={"Type":"Tipo de Iniciativa"})
-    
+
     if tamanho_marcador=="Padrão" : fig.update_traces(marker=dict(size=10))
-    fig.update_geos(fitbounds="locations", visible=False, showcountries=True)
+
+    fig.update_geos(showocean=True, oceancolor="#F2F2F2", showcountries=True,
+                     showland=True, landcolor="#F2F2F2",)
     
     substitle = "" if tamanho_marcador=="Padrão" else "Marcadores proporcionais ao percentual de cobertura da jurisdição"
-    title = f'Iniciativas de precificação de carbono | {status} <br><sup>{substitle}'
+    title = f'Mecanismos de compliance para precificação de carbono | {status} <br><sup>{substitle}'
 
     fig.update_layout(
     
-        title=dict(text=title, font=dict(size=20),),
+        title=dict(text=title, font=dict(size=24),),
             
             width=700,
-            height=700,
+            height=600,
+            margin=dict(b=0),
 
             showlegend=True,
             legend=dict(
-                orientation="v",x=0,xanchor="center",
-                y=1,yanchor="auto", font=dict(size=15)
+                orientation="v",x=0.5,xanchor="center",
+                y=0,yanchor="auto", font=dict(size=14), 
             ),
         )
 
 
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig,theme="streamlit", use_container_width=True)
+
+    caption = "O mapa apresenta a distribuição geográfica dos mecanismos de compliance para precificação de carbono," \
+            " classificados em dois tipos principais: taxas de carbono, representados por círculos azuis escuros, " \
+            "e sistemas de comércio de emissões, representados por círculos azuis claros. " \
+    
+    if tamanho_marcador!="Padrão":
+        caption+= "O tamanho dos marcadores é proporcional ao percentual de cobertura da jurisdição," \
+        " ou seja, reflete a abrangência do instrumento em relação às emissões totais da localidade. "
+    
+    st.caption(caption)
 
 
 #Gráfico de barras/linhas tipos de Iniciativas 
-st.markdown("##")
+
 st.header("Distribuição de Iniciativas")
 
 barras, linhas = st.columns(2)
@@ -141,7 +144,9 @@ with barras:
 
     eixo_x = col1.radio(
         "Agregar por",
-        options=["Region", "Income group","Status"],horizontal=True,index=2
+        options=["Region", "Income group","Status"],horizontal=True,index=2,
+        #traduzir as opções
+        format_func=lambda x: "Região" if x=="Region" else "Faixa de Renda" if x=="Income group" else "Status"
     )
 
     if eixo_x != "Status":
@@ -166,7 +171,8 @@ with barras:
                  y="Instrument name", color="Type", 
                  barmode='group',
                 text_auto=True,
-                 labels={"Subtype":"Número de Iniciativas","Status":""},
+                 labels={"Subtype":"Número de Iniciativas","Status":"","Type":"",
+                         "Instrument name":"Número de Iniciativas","Region":"Região",},
                  title=f"Distribuição de Iniciativas por {eixo_x} {filtro_leg}",)
 
 
@@ -174,22 +180,21 @@ with barras:
     fig.update_layout(
 
             width=800,
-            height=700,
+            height=500,
 
             showlegend=True,
             legend=dict(
                 orientation="h",
                 yanchor="bottom",
-                y=1.02,
-                xanchor="right",
-                x=1,
+                y=1,
+                x=0,
                 font=dict(size=12)
             ),
         )
     
-
     
     st.plotly_chart(fig, use_container_width=True)
+    st.caption("O gráfico apresenta o número de mecanismos de *compliance* para precificação de carbono, classificados por tipo de instrumento: **taxa de carbono** e **sistema de comércio de emissões**. A visualização permite a aplicação de diferentes filtros e formas de agregação: é possível **filtrar as iniciativas por status** e **agregar os resultados por região geográfica e faixa de renda** (conforme classificação do Banco Mundial)")
 
 
 with linhas:
@@ -208,32 +213,34 @@ with linhas:
 
     fig = px.line(linhas_data, x="Start Year",
                    y="Total", color='Type',
-                   labels={"Type":""},
+                   labels={"Type":"","Start Year":"Ano",},
                    title=f"Distribuição de Iniciativas por Ano e Tipo | {filtro_dados}",
                    )
     
+
     fig.update_layout(
 
             width=800,
-            height=700,
+            height=500,
 
             showlegend=True,
             legend=dict(
                 orientation="h",
                 yanchor="bottom",
-                y=1.02,
-                xanchor="right",
-                x=1,
+                y=1,
+                x=0,
                 font=dict(size=12)
             ),
         )
     
-
-    st.plotly_chart(fig, use_container_width=True)
     
 
-st.markdown("##")
-st.header("Evolução no tempo")
+    st.plotly_chart(fig, use_container_width=True)
+    st.caption("O gráfico apresenta a evolução do número  de mecanismos de compliance para precificação de carbono, por status, ao longo do tempo, diferenciando entre taxas de carbono e sistemas de comércio de emissões. É possível filtrar as iniciativas por status.")
+    
+
+st.markdown("##") #espacamento entre blocos
+st.header("Séries Históricas")
 
 preco, emissoes, receita = st.columns(3)
 
@@ -242,7 +249,7 @@ with preco:
     price_data = series_wb.groupby(["Instrument Type","Year"])["Price"]\
         .agg(["mean","median","min","max"]).dropna(how="all").reset_index()
 
-    agg_dict = {"mean":"Média","median":"Mediana","min":"Mínimo","max":"Máximo"}
+    agg_dict = {"mean":"Média","median":"Mediana","min":"Mínimo","max":"Máximo","sum":"Total"}
 
     plot_placeholder = st.empty()
 
@@ -255,30 +262,31 @@ with preco:
         format_func=lambda x: agg_dict[x]
     )
 
+    labels_dict = {"Instrument Type":"","Year":"Ano",aggregation:""}
+    labels_dict.update(agg_dict)
     
     fig = px.line(price_data, x="Year", y=aggregation, color='Instrument Type',
-                    labels={"Instrument Type":""}, 
-                    )
+                    labels=labels_dict)
 
     fig.update_layout(
 
-            title=dict(text=f"Evolução do Preço por Tipo de Iniciativa | {agg_dict[aggregation]}", font=dict(size=20),),
+            title=dict(text=f"Evolução do Preço por Tipo de Iniciativa | {agg_dict[aggregation]}", ),
             
             width=500,
-            height=500,
+            height=400,
 
             showlegend=True,
             legend=dict(
                 orientation="h",
                 yanchor="bottom",
                 y=1,
-                xanchor="right",
-                x=1,
+                x=0,
                 font=dict(size=12)
             ),
         )
 
     plot_placeholder.plotly_chart(fig, use_container_width=True)
+    st.caption("O gráfico mostra a evolução histórica dos preços  em mecanismos de compliance para precificação  de carbono, diferenciando entre taxas de carbono  e ETS. A visualização permite que o preço seja  agregado por valor médio, mediana, mínimo, e  máximo.")
 
 
 with emissoes:
@@ -286,33 +294,36 @@ with emissoes:
     emissoes = series_wb.groupby(["Instrument Type","Year"])["Emissions"].sum()*100
     emissoes = emissoes.to_frame().reset_index()
 
+    labels_dict = {"Instrument Type":"","Year":"Ano","Emissions":"%"}
+    labels_dict.update(agg_dict)
+
     fig = px.line(emissoes, x="Year", y="Emissions", color='Instrument Type',
-                    labels={"Instrument Type":""}, )
+                    labels=labels_dict)
+
 
     fig.update_layout(
 
-            title=dict(text=f"% das Emissões Cobertas por Tipo de Iniciativa", font=dict(size=20),),
+            title=dict(text=f"% das Emissões Cobertas por Tipo de Iniciativa", ),
             
             width=500,
-            height=500,
+            height=400,
 
             showlegend=True,
             legend=dict(
                 orientation="h",
                 yanchor="bottom",
-                y=1.,
-                xanchor="right",
-                x=1,
+                y=1,
+                x=0,
                 font=dict(size=12)
             ),
         )
+
     
     st.plotly_chart(fig, use_container_width=True)
+    st.caption("O gráfico apresenta a proporção de emissões de gases de efeito estufa cobertas por mecanismos de compliance para precificação de carbono, ao longo do tempo, por tipo de iniciativa.")
 
 
 with receita:
-
-
 
     receita_data = series_wb.groupby(["Instrument Type","Year"])["Revenue"]\
         .agg(["mean","sum"]).dropna(how="all").reset_index().dropna()
@@ -329,28 +340,74 @@ with receita:
         format_func=lambda x: agg_dict[x]
     )
 
+    labels_dict = {"Instrument Type":"","Year":"Ano",aggregation:""}
+    labels_dict.update(agg_dict)
+
     
     fig = px.line(receita_data, x="Year", y=aggregation, color='Instrument Type',
-                    labels={"Instrument Type":""}, 
+                    labels=labels_dict
                     )
 
     fig.update_layout(
 
-            title=dict(text=f"Evolução da Receita {agg_dict[aggregation]} por Tipo de Iniciativa", font=dict(size=20),),
+            title=dict(text=f"Evolução da Receita {agg_dict[aggregation]} por Tipo de Iniciativa", ),
             
             width=500,
-            height=500,
+            height=400,
 
             showlegend=True,
             legend=dict(
                 orientation="h",
                 yanchor="bottom",
                 y=1,
-                xanchor="right",
-                x=1,
+                x=0,
                 font=dict(size=12)
             ),
         )
 
     plot_placeholder.plotly_chart(fig, use_container_width=True)
+    st.caption("O gráfico mostra a receita anual gerada por  mecanismos de compliance para precificação de  carbono, desagregada por tipo (taxa de carbono e  ETS). A visualização premite que a receita seja agregada por valor médio e total.")
 
+
+st.header("Comparação Preço Explícito")
+
+ets, carbon_tax = st.columns(2)
+
+last_year = series_wb['Year'].max()
+latest_prices = series_wb[series_wb['Year'] == last_year].copy()
+latest_prices = latest_prices.set_index(['Name of the initiative', 'Instrument Type'])['Price'].unstack()
+
+price_ets, price_carbon_tax = latest_prices['ETS'].dropna().sort_values().reset_index(),\
+                                latest_prices['Taxas de Carbono'].dropna().sort_values().reset_index()
+
+
+with ets:
+    fig = px.scatter(price_ets, y='Name of the initiative', x='ETS',
+                    labels={"Name of the initiative":"",'ETS':"US$/tCO2e"},
+                    )
+
+    fig.update_layout(
+
+        title=dict(text=f"Preço Explícito ETS em {last_year} (US$/tCO2e)", ),
+        margin=dict(l=0, r=0, b=0),
+
+    )
+
+    
+    st.plotly_chart(fig, use_container_width=True)
+
+with carbon_tax:
+    fig = px.scatter(price_carbon_tax, y='Name of the initiative', x='Taxas de Carbono',
+                    labels={"Name of the initiative":"",'Taxas de Carbono':"US$/tCO2e"},
+                    )
+    
+    fig.update_layout(
+
+        title=dict(text=f"Preço Explícito Taxas de Carbono em {last_year} (US$/tCO2e)", ),
+        margin=dict(l=0, r=0, b=0),
+    )
+
+
+    st.plotly_chart(fig, use_container_width=True)
+
+st.caption(f"O gráfico apresenta o preço explícito do carbono (em US$/tCO₂e) praticado em diferentes países e regiões, em {last_year}, com distinção entre taxas de carbono e ETS.")

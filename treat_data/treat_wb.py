@@ -1,3 +1,4 @@
+#%%
 """
 This script reads the data from the World Bank excel file and treats it to be used in the project.
 The data is about carbon taxes and includes information about the tax, the price, the revenue and the emissions."""
@@ -5,7 +6,6 @@ The data is about carbon taxes and includes information about the tax, the price
 import pandas as pd 
 import numpy as np 
 import re
-
 
 def update_wb(file_path='data/raw/dados_wb.xlsx',
               save_path="data/processed",
@@ -24,22 +24,14 @@ def update_wb(file_path='data/raw/dados_wb.xlsx',
                     sheet_name='Compliance_Gen Info',
                     header=1)
 
-
-    df_info.replace(" ", np.nan, inplace=True)\
-            .dropna(axis=0,how='all', inplace=True)\
-            .dropna(axis=1, how='all', inplace=True)
+    df_info = df_info.replace(" ", np.nan)\
+            .dropna(axis=0,how='all')\
+            .dropna(axis=1, how='all')
     
-
-    #filter cols
-    cols = ["Instrument name","Type","Status","Jurisdiction covered",
-            "Share of jurisdiction emissions covered","Share of global emissions covered","Sectors Covered"]
-    df_info = df_info[cols]
-
     #country name
     df_info["Jurisdiction covered"] = df_info["Jurisdiction covered"].str.strip()
 
     # Sectors Covered
-
     # Replace "Yes", "No", and "In principle" with 1, 0, and 0 respectively
     # Create a new column that lists the columns where the value is 1 in that row
     df_info['Sectors Covered'] = df_info[['Electricity and heat',
@@ -165,9 +157,30 @@ def update_wb(file_path='data/raw/dados_wb.xlsx',
     df_emissions.columns.name="Year"
     df_emissions = df_emissions.stack().to_frame("Emissions")
 
+    series_wb = pd.concat([df_price,df_revenue,df_emissions],axis=1).reset_index()
+    
+    #Traducoes 
+    df_info["Status"] = df_info["Status"].map({"Implemented":"Implementado",
+                                            "Under consideration":"Em consideração",
+                                            "Under development":"Em desenvolvimento",
+                                            "Abolished":"Extinto"})
+
+    df_info["Subtype"] = df_info["Subtype"].map({"National":"Nacional",
+                                                    "Regional":"Regional",
+                                                    "Subnational - State/Province":"Subnacional - Estado/Província",
+                                                    "Subnational - City":"Subnacional - Município",
+                                                    "National Undecided":"Nacional Indeciso"})
+
+    df_info['Type'] = df_info['Type'].map({"Carbon tax":"Taxas de Carbono",
+                                            "ETS":"Sistema  de comércio de licenças de emissão (ETS)"})
+
+
+    series_wb['Instrument Type'] = series_wb['Instrument Type'].map({"Carbon tax":"Taxas de Carbono",
+                                                                     "ETS":"ETS"})
+
+
     #concat and save time series
-    carbon_time_series = pd.concat([df_price,df_revenue,df_emissions],axis=1)\
-                        .reset_index().to_csv(f"{save_path}/wb_time_series.csv",
+    series_wb.to_csv(f"{save_path}/wb_time_series.csv",
                                             index=False,sep=";",decimal=",")
 
     #save data info
@@ -176,3 +189,7 @@ def update_wb(file_path='data/raw/dados_wb.xlsx',
 
 
     print("Done WB")
+
+
+if __name__ == "__main__":
+     update_wb()
