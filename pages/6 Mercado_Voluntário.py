@@ -28,7 +28,7 @@ pais_info = mvc_credits_info.copy()
 
 #titulo
 st.title("Mercado Voluntário")
-st.write(f"Fontes: Berkeley carbon trading project ({update_info['Berkeley carbon trading project']}); Ecosystem Marketplace ({update_info['Ecosystem Marketplace']})")
+st.write(f"Fontes: Berkeley carbon trading project ({update_info['MVC']}); Ecosystem Marketplace ({update_info['Ecosystem Marketplace']})")
 st.markdown("##") #espacamento entre blocos
 
 
